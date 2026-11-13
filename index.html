@@ -32,7 +32,7 @@
     "address": { "@type": "PostalAddress", "addressLocality": "São José dos Campos", "addressRegion": "SP", "addressCountry": "BR" },
     "alumniOf": { "@type": "CollegeOrUniversity", "name": "Anhanguera Educacional" },
     "knowsLanguage": ["pt", "en", "es"],
-    "knowsAbout": ["GPON", "FTTX", "DWDM", "OTN", "SDH", "Metro-Ethernet", "Fiber optics", "OTDR", "VoIP", "SLA management", "Field team leadership", "JavaScript", "Node.js", "PostgreSQL", "Supabase", "Quality Assurance"],
+    "knowsAbout": ["GPON", "FTTX", "DWDM", "OTN", "SDH", "Metro-Ethernet", "Fiber optics", "OTDR", "VoIP", "SLA management", "Field team leadership", "JavaScript", "Node.js", "PostgreSQL", "Supabase", "Firebase", "Cloud Functions", "Playwright", "PWA", "Quality Assurance"],
     "sameAs": ["https://www.linkedin.com/in/filipe-de-souza-santos-21aa7a86/", "https://github.com/Filipe-Bina"]
   }
   </script>
@@ -225,6 +225,11 @@
     .badge { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px; }
     .badge.live { background: var(--success-light); color: #065f46; }
     .badge.internal { background: #e0e7ff; color: #3730a3; }
+    .badge.client { background: #fef3c7; color: #92400e; }
+    .proj-card.feat { grid-column: 1 / -1; }
+    .proj-feats { margin: 10px 0 4px; padding-left: 18px; font-size: 0.88rem; line-height: 1.55; color: var(--text-secondary, #475569); columns: 2; column-gap: 28px; }
+    .proj-feats li { break-inside: avoid; margin-bottom: 4px; }
+    @media (max-width: 768px) { .proj-feats { columns: 1; } }
     .live-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--success); animation: blink 1.4s ease-in-out infinite; }
     .proj-name { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; }
     .proj-problem { font-size: 12px; color: var(--primary); font-weight: 600; }
@@ -590,10 +595,45 @@
     <p class="sec-label">// <span class="pt">projetos</span><span class="en">projects</span></p>
     <h2 class="sec-title pt">Sistemas em produção</h2>
     <h2 class="sec-title en">Systems in production</h2>
-    <p class="sec-sub pt">Ferramentas que construí para resolver problemas reais da operação de campo — usadas pelas equipas todos os dias.</p>
-    <p class="sec-sub en">Tools I built to solve real field-operations problems — used by teams every day.</p>
+    <p class="sec-sub pt">Um produto para cliente externo e ferramentas internas que construí para resolver problemas reais — todos em uso no dia a dia.</p>
+    <p class="sec-sub en">A product for an external client plus internal tools I built to solve real problems — all in daily use.</p>
 
     <div class="proj-grid">
+
+      <div class="proj-card feat">
+        <div class="proj-head">
+          <div class="proj-icon">🔧</div>
+          <span class="badge client"><span class="live-dot"></span> <span class="pt">Cliente real · em produção</span><span class="en">Real client · live</span></span>
+        </div>
+        <div class="proj-name">MasterTec PRO</div>
+        <div class="proj-problem pt">Desafio: integrar site, atendimento, bancada e caixa de uma assistência técnica num só sistema</div>
+        <div class="proj-problem en">Challenge: bring a repair shop's website, front desk, workbench and cash register into one system</div>
+        <div class="proj-desc pt">Plataforma completa para uma assistência técnica em São José dos Campos, desenvolvida de ponta a ponta por mim (com apoio de IA) e em produção desde setembro de 2026. Site público com orçamento guiado e vitrine de aparelhos, acompanhamento da O.S. pelo cliente e painel administrativo instalável como PWA.</div>
+        <div class="proj-desc en">End-to-end platform for a smartphone repair shop in São José dos Campos, built solo (AI-assisted) and live since September 2026. Public site with guided quotes and a device showcase, customer-facing repair tracking, and an admin panel installable as a PWA.</div>
+        <ul class="proj-feats pt">
+          <li>O.S. com numeração transacional, fotos, adiantamentos, histórico e garantia</li>
+          <li>Link do cliente com token aleatório de 256 bits e assinatura digital do termo</li>
+          <li>Notificações automáticas no WhatsApp via Cloud Functions + Evolution API</li>
+          <li>Caixa, crediário e lançamentos financeiros com edição auditada</li>
+          <li>Perfis de administrador e funcionário (Firebase Auth + Firestore Rules)</li>
+          <li>Testes automatizados com Node.js e Playwright (fluxos de O.S., caixa, importação)</li>
+        </ul>
+        <ul class="proj-feats en">
+          <li>Repair orders with transactional numbering, photos, deposits, history and warranty</li>
+          <li>Customer link secured by a 256-bit random token, with on-screen e-signature</li>
+          <li>Automatic WhatsApp notifications via Cloud Functions + Evolution API</li>
+          <li>Cash register, store credit and audited financial edits</li>
+          <li>Admin and staff roles (Firebase Auth + Firestore Rules)</li>
+          <li>Automated tests with Node.js and Playwright (orders, cash, import flows)</li>
+        </ul>
+        <div class="proj-tags">
+          <span class="tag">JavaScript</span><span class="tag">Firebase</span><span class="tag">Firestore</span><span class="tag">Cloud Functions</span><span class="tag">Node.js 22</span><span class="tag">PWA</span><span class="tag">Playwright</span>
+        </div>
+        <div class="proj-links">
+          <a class="proj-link" href="https://mastertecsjc.com.br" target="_blank" rel="noopener">↗ <span class="pt">Ver site</span><span class="en">Live site</span></a>
+          <span class="proj-link" style="opacity:.7;cursor:default">🔒 <span class="pt">Código privado (cliente)</span><span class="en">Private code (client)</span></span>
+        </div>
+      </div>
 
       <div class="proj-card">
         <div class="proj-head">
