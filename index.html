@@ -1,9 +1,42 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt" data-lang="pt">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Filipe Santos — Desenvolvedor Full Stack</title>
+  <title>Filipe Santos — Telecom Network Operations · QA &amp; Full-Stack</title>
+  <meta name="description" content="Filipe de Souza Santos — 14+ anos em telecomunicações (GPON, DWDM, OTN, Metro-Ethernet), liderança de equipas de campo até 25 técnicos, SLA B2B 95%+. Licenciado em Análise e Desenvolvimento de Sistemas, QA e Full-Stack. Relocação para Portugal / Espanha em 2027." />
+  <meta name="keywords" content="NOC, Network Operations, Telecom, GPON, DWDM, OTN, SDH, Fibra ótica, Field Operations, QA, Full Stack, Node.js, PostgreSQL, Portugal, Espanha, Relocation" />
+  <meta name="author" content="Filipe de Souza Santos" />
+  <meta name="theme-color" content="#0f172a" />
+  <link rel="canonical" href="https://filipe-bina.github.io/" />
+
+  <meta property="og:type" content="profile" />
+  <meta property="og:title" content="Filipe Santos — Telecom Network Operations · QA &amp; Full-Stack" />
+  <meta property="og:description" content="14+ anos em telecom (GPON · DWDM · OTN), liderança de equipas de até 25 técnicos, SLA B2B 95%+, sistemas web em produção. Disponível para Portugal / Espanha em 2027." />
+  <meta property="og:url" content="https://filipe-bina.github.io/" />
+  <meta property="og:locale" content="pt_PT" />
+  <meta property="og:locale:alternate" content="en_GB" />
+  <meta name="twitter:card" content="summary" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f172a'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='28' font-weight='700' fill='%23818cf8' text-anchor='middle'%3EFS%3C/text%3E%3C/svg%3E" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Filipe de Souza Santos",
+    "url": "https://filipe-bina.github.io/",
+    "jobTitle": "Telecom Network Operations · QA & Full-Stack",
+    "email": "mailto:filipes_santos@hotmail.com",
+    "telephone": "+55 12 99230-7649",
+    "address": { "@type": "PostalAddress", "addressLocality": "São José dos Campos", "addressRegion": "SP", "addressCountry": "BR" },
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "Anhanguera Educacional" },
+    "knowsLanguage": ["pt", "en", "es"],
+    "knowsAbout": ["GPON", "FTTX", "DWDM", "OTN", "SDH", "Metro-Ethernet", "Fiber optics", "OTDR", "VoIP", "SLA management", "Field team leadership", "JavaScript", "Node.js", "PostgreSQL", "Supabase", "Quality Assurance"],
+    "sameAs": ["https://www.linkedin.com/in/filipe-de-souza-santos-21aa7a86/", "https://github.com/Filipe-Bina"]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -20,11 +53,14 @@
       --primary-light: #ede9fe;
       --success: #10b981;
       --success-light: #d1fae5;
+      --amber-light: #fef3c7;
+      --amber: #b45309;
       --radius: 12px;
       --radius-sm: 8px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: 'Inter', sans-serif;
@@ -34,604 +70,317 @@
       line-height: 1.6;
     }
 
-    /* ── HERO ── */
-    .hero {
-      background: #0f172a;
-      padding: 0;
-      overflow: hidden;
-      position: relative;
-    }
+    /* ── LANGUAGE ── */
+    html[data-lang="pt"] .en { display: none !important; }
+    html[data-lang="en"] .pt { display: none !important; }
 
+    /* ── TOP BAR ── */
+    .topbar {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(15,23,42,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .topbar-inner {
+      max-width: 960px; margin: 0 auto; padding: 10px 32px;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    }
+    .brand { font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: #fff; text-decoration: none; font-size: 15px; }
+    .brand span { color: #818cf8; }
+    .nav { display: flex; gap: 18px; align-items: center; }
+    .nav a { color: #94a3b8; text-decoration: none; font-size: 13px; font-weight: 500; }
+    .nav a:hover { color: #fff; }
+    .lang-switch { display: inline-flex; border: 1px solid rgba(255,255,255,0.15); border-radius: 6px; overflow: hidden; }
+    .lang-switch button {
+      background: transparent; color: #94a3b8; border: 0; padding: 5px 10px;
+      font: 600 12px 'JetBrains Mono', monospace; cursor: pointer;
+    }
+    .lang-switch button[aria-pressed="true"] { background: #4f46e5; color: #fff; }
+
+    /* ── HERO ── */
+    .hero { background: #0f172a; overflow: hidden; position: relative; }
     .hero-grid-bg {
-      position: absolute;
-      inset: 0;
+      position: absolute; inset: 0;
       background-image:
         linear-gradient(rgba(79,70,229,0.06) 1px, transparent 1px),
         linear-gradient(90deg, rgba(79,70,229,0.06) 1px, transparent 1px);
       background-size: 40px 40px;
     }
-
-    .hero-inner {
-      position: relative;
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 72px 32px 64px;
-    }
+    .hero-inner { position: relative; max-width: 960px; margin: 0 auto; padding: 64px 32px 56px; }
 
     .hero-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(79,70,229,0.2);
-      border: 1px solid rgba(79,70,229,0.4);
-      color: #a5b4fc;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
-      padding: 6px 14px;
-      border-radius: 6px;
-      margin-bottom: 28px;
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.35);
+      color: #6ee7b7; font-family: 'JetBrains Mono', monospace; font-size: 12px;
+      padding: 6px 14px; border-radius: 6px; margin-bottom: 26px;
     }
-
     .hero-eyebrow::before {
-      content: '';
-      display: inline-block;
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #10b981;
-      animation: blink 1.4s ease-in-out infinite;
+      content: ''; display: inline-block; width: 7px; height: 7px; border-radius: 50%;
+      background: #10b981; animation: blink 1.4s ease-in-out infinite;
     }
-
     @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
 
     .hero h1 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(36px, 5vw, 56px);
-      font-weight: 700;
-      color: #ffffff;
-      line-height: 1.1;
-      letter-spacing: -0.03em;
-      margin-bottom: 8px;
+      font-family: 'Space Grotesk', sans-serif; font-size: clamp(36px, 5vw, 56px);
+      font-weight: 700; color: #fff; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 10px;
     }
-
     .hero-role {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(18px, 2.5vw, 24px);
-      font-weight: 500;
-      color: #818cf8;
-      margin-bottom: 20px;
+      font-family: 'Space Grotesk', sans-serif; font-size: clamp(17px, 2.3vw, 22px);
+      font-weight: 500; color: #818cf8; margin-bottom: 20px;
     }
+    .hero-desc { font-size: 16px; color: #94a3b8; max-width: 620px; line-height: 1.7; margin-bottom: 32px; }
+    .hero-desc strong { color: #e2e8f0; font-weight: 500; }
 
-    .hero-desc {
-      font-size: 16px;
-      color: #94a3b8;
-      max-width: 560px;
-      line-height: 1.7;
-      margin-bottom: 36px;
-    }
-
-    .hero-desc strong {
-      color: #e2e8f0;
-      font-weight: 500;
-    }
-
-    .hero-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 52px;
-    }
+    .hero-links { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 48px; }
 
     .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      padding: 10px 20px;
-      border-radius: var(--radius-sm);
-      font-size: 14px;
-      font-weight: 600;
-      text-decoration: none;
-      cursor: pointer;
-      border: none;
-      transition: all 0.15s;
+      display: inline-flex; align-items: center; gap: 7px; padding: 10px 18px;
+      border-radius: var(--radius-sm); font-size: 14px; font-weight: 600;
+      text-decoration: none; cursor: pointer; border: none; transition: all 0.15s;
     }
-
     .btn-primary { background: #4f46e5; color: #fff; }
     .btn-primary:hover { background: #4338ca; }
     .btn-ghost { background: rgba(255,255,255,0.07); color: #e2e8f0; border: 1px solid rgba(255,255,255,0.12); }
     .btn-ghost:hover { background: rgba(255,255,255,0.12); }
 
-    .hero-stats {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      padding-top: 32px;
-    }
-
-    .stat {
-      padding: 0 36px 0 0;
-      margin-right: 36px;
-      border-right: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .stat:last-child { border-right: none; }
-
-    .stat-val {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 32px;
-      font-weight: 700;
-      color: #fff;
-      line-height: 1;
-      margin-bottom: 4px;
-    }
-
+    .hero-stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 30px; }
+    .stat { padding: 0 16px; border-left: 1px solid rgba(255,255,255,0.08); }
+    .stat:first-child { padding-left: 0; border-left: none; }
+    .stat-val { font-family: 'Space Grotesk', sans-serif; font-size: 30px; font-weight: 700; color: #fff; line-height: 1; margin-bottom: 4px; }
     .stat-val span { color: #818cf8; }
-
-    .stat-label {
-      font-size: 12px;
-      color: #64748b;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
+    .stat-label { font-size: 11px; color: #64748b; text-transform: uppercase; letter-spacing: 0.06em; }
 
     /* ── LAYOUT ── */
     .page { max-width: 960px; margin: 0 auto; padding: 0 32px; }
-
-    section {
-      padding: 64px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
+    section { padding: 60px 0; border-bottom: 1px solid var(--line); scroll-margin-top: 56px; }
     section:last-child { border-bottom: none; }
+    .sec-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--primary); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px; }
+    .sec-title { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; letter-spacing: -0.025em; margin-bottom: 8px; }
+    .sec-sub { color: var(--muted); font-size: 15px; margin-bottom: 32px; max-width: 680px; }
 
-    .sec-label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      color: var(--primary);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 10px;
+    /* ── RELOCATION BANNER ── */
+    .reloc {
+      margin-top: 32px; background: var(--surface); border: 1px solid var(--line);
+      border-left: 4px solid var(--success); border-radius: var(--radius-sm);
+      padding: 16px 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px;
     }
+    .reloc-k { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+    .reloc-v { font-size: 14px; font-weight: 600; }
 
-    .sec-title {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 28px;
-      font-weight: 700;
-      letter-spacing: -0.025em;
-      margin-bottom: 8px;
+    /* ── ROLES ── */
+    .roles { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+    .role {
+      background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 20px; display: flex; flex-direction: column; gap: 8px;
     }
-
-    .sec-sub {
-      color: var(--muted);
-      font-size: 15px;
-      margin-bottom: 36px;
-    }
+    .role-top { display: flex; align-items: center; gap: 10px; }
+    .role-icon { width: 36px; height: 36px; border-radius: 8px; background: var(--primary-light); display: flex; align-items: center; justify-content: center; font-size: 18px; }
+    .role-name { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 15px; line-height: 1.3; }
+    .role-desc { font-size: 13px; color: var(--muted); }
+    .fit { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; padding: 2px 8px; border-radius: 4px; width: fit-content; }
+    .fit.strong { background: var(--success-light); color: #065f46; }
+    .fit.growing { background: var(--amber-light); color: var(--amber); }
 
     /* ── SOBRE ── */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
-      align-items: start;
-    }
-
-    .about-text {
-      font-size: 15px;
-      line-height: 1.8;
-      color: #334155;
-    }
-
+    .about-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 32px; align-items: start; }
+    .about-text { font-size: 15px; line-height: 1.8; color: #334155; }
     .about-text p { margin-bottom: 16px; }
     .about-text p:last-child { margin-bottom: 0; }
     .about-text strong { color: var(--text); font-weight: 600; }
-
-    .about-pills {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .about-pill {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-sm);
-      padding: 14px 16px;
-    }
-
-    .pill-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      flex-shrink: 0;
-    }
-
+    .about-pills { display: flex; flex-direction: column; gap: 10px; }
+    .about-pill { display: flex; align-items: center; gap: 12px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 14px 16px; }
+    .pill-icon { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
     .pill-icon.blue { background: #eff6ff; }
     .pill-icon.purple { background: var(--primary-light); }
     .pill-icon.green { background: var(--success-light); }
-
+    .pill-icon.amber { background: var(--amber-light); }
     .pill-text { font-size: 13px; font-weight: 600; color: var(--text); line-height: 1.4; }
     .pill-sub { font-size: 12px; color: var(--muted); font-weight: 400; }
 
+    /* ── STACK ── */
+    .stack-groups { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 16px; }
+    .stack-group { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; }
+    .stack-group.featured { border-color: #c7d2fe; box-shadow: 0 2px 14px rgba(79,70,229,0.06); }
+    .stack-group-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 14px; }
+    .stack-group.featured .stack-group-title { color: var(--primary); }
+    .stack-items { display: flex; flex-direction: column; gap: 8px; }
+    .stack-item { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500; }
+    .stack-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--primary); flex-shrink: 0; }
+    .stack-dot.learning { background: #f59e0b; }
+    .learning-note { font-size: 11px; color: var(--amber); background: var(--amber-light); padding: 2px 7px; border-radius: 4px; margin-left: auto; white-space: nowrap; }
+    .legend { display: flex; gap: 18px; font-size: 12px; color: var(--muted); margin-top: 16px; }
+    .legend span { display: inline-flex; align-items: center; gap: 6px; }
+
     /* ── PROJETOS ── */
-    .proj-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 16px;
-    }
-
+    .proj-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
     .proj-card {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      text-decoration: none;
-      color: inherit;
-      transition: all 0.2s;
-      position: relative;
-      overflow: hidden;
+      background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 24px; display: flex; flex-direction: column; gap: 12px; position: relative; overflow: hidden; transition: all 0.2s;
     }
-
-    .proj-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: var(--primary);
-      opacity: 0;
-      transition: opacity 0.2s;
-    }
-
+    .proj-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--primary); opacity: 0; transition: opacity 0.2s; }
     .proj-card:hover { border-color: #c7d2fe; box-shadow: 0 4px 20px rgba(79,70,229,0.08); transform: translateY(-2px); }
     .proj-card:hover::before { opacity: 1; }
-
     .proj-head { display: flex; justify-content: space-between; align-items: flex-start; }
-
-    .proj-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      background: var(--primary-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-    }
-
-    .live-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      background: var(--success-light);
-      color: #065f46;
-      font-size: 11px;
-      font-weight: 700;
-      padding: 4px 10px;
-      border-radius: 20px;
-    }
-
-    .live-dot {
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: var(--success);
-      animation: blink 1.4s ease-in-out infinite;
-    }
-
-    .proj-name {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 16px;
-      font-weight: 700;
-    }
-
+    .proj-icon { width: 40px; height: 40px; border-radius: 10px; background: var(--primary-light); display: flex; align-items: center; justify-content: center; font-size: 20px; }
+    .badge { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px; }
+    .badge.live { background: var(--success-light); color: #065f46; }
+    .badge.internal { background: #e0e7ff; color: #3730a3; }
+    .live-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--success); animation: blink 1.4s ease-in-out infinite; }
+    .proj-name { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; }
+    .proj-problem { font-size: 12px; color: var(--primary); font-weight: 600; }
     .proj-desc { font-size: 13px; color: var(--muted); line-height: 1.6; flex: 1; }
-
     .proj-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-
-    .tag {
-      font-size: 11px;
-      font-weight: 600;
-      padding: 3px 9px;
-      border-radius: 5px;
-      background: var(--surface-2);
-      border: 1px solid var(--line);
-      color: var(--muted);
-    }
-
-    .proj-links { display: flex; gap: 8px; }
-
+    .tag { font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 5px; background: var(--surface-2); border: 1px solid var(--line); color: var(--muted); }
+    .proj-links { display: flex; gap: 8px; flex-wrap: wrap; }
     .proj-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      font-size: 12px;
-      font-weight: 600;
-      padding: 7px 12px;
-      border-radius: 6px;
-      text-decoration: none;
-      border: 1px solid var(--line);
-      background: var(--surface-2);
-      color: var(--text);
-      transition: all 0.15s;
+      display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 600; padding: 7px 12px;
+      border-radius: 6px; text-decoration: none; border: 1px solid var(--line); background: var(--surface-2); color: var(--text); transition: all 0.15s;
     }
-
     .proj-link:hover { background: var(--primary-light); border-color: #c7d2fe; color: var(--primary); }
 
-    /* ── STACK ── */
-    .stack-groups {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 20px;
-    }
-
-    .stack-group {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 20px;
-    }
-
-    .stack-group-title {
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--muted);
-      margin-bottom: 14px;
-    }
-
-    .stack-items { display: flex; flex-direction: column; gap: 8px; }
-
-    .stack-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 13px;
-      font-weight: 500;
-    }
-
-    .stack-dot {
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: var(--primary);
-      flex-shrink: 0;
-    }
-
-    .stack-dot.learning { background: #f59e0b; }
-
-    .learning-note {
-      font-size: 11px;
-      color: #b45309;
-      background: #fef3c7;
-      padding: 2px 7px;
-      border-radius: 4px;
-      margin-left: auto;
-    }
-
     /* ── TIMELINE ── */
-    .timeline {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 18px;
-      top: 24px;
-      bottom: 24px;
-      width: 1px;
-      background: var(--line);
-    }
-
-    .tl-item {
-      display: flex;
-      gap: 20px;
-      padding-bottom: 32px;
-      position: relative;
-    }
-
+    .timeline { position: relative; display: flex; flex-direction: column; }
+    .timeline::before { content: ''; position: absolute; left: 18px; top: 24px; bottom: 24px; width: 1px; background: var(--line); }
+    .tl-item { display: flex; gap: 20px; padding-bottom: 30px; position: relative; }
     .tl-item:last-child { padding-bottom: 0; }
-
     .tl-dot {
-      width: 37px;
-      height: 37px;
-      border-radius: 50%;
-      background: var(--surface);
-      border: 2px solid var(--line);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 16px;
-      flex-shrink: 0;
-      position: relative;
-      z-index: 1;
+      width: 37px; height: 37px; border-radius: 50%; background: var(--surface); border: 2px solid var(--line);
+      display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; position: relative; z-index: 1;
     }
-
-    .tl-dot.highlight {
-      border-color: var(--primary);
-      background: var(--primary-light);
-    }
-
+    .tl-dot.highlight { border-color: var(--primary); background: var(--primary-light); }
     .tl-body { flex: 1; padding-top: 6px; }
-
-    .tl-period {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      color: var(--muted);
-      margin-bottom: 4px;
-    }
-
-    .tl-role {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 15px;
-      font-weight: 700;
-      margin-bottom: 2px;
-    }
-
+    .tl-period { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted); margin-bottom: 4px; }
+    .tl-role { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700; margin-bottom: 2px; }
     .tl-company { font-size: 13px; color: var(--muted); margin-bottom: 8px; }
-
-    .tl-highlights {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-
-    .tl-highlight {
-      font-size: 12px;
-      color: #065f46;
-      background: var(--success-light);
-      padding: 3px 9px;
-      border-radius: 5px;
-      font-weight: 500;
-    }
+    .tl-points { font-size: 13px; color: #334155; margin: 0 0 10px 16px; }
+    .tl-points li { margin-bottom: 3px; }
+    .tl-highlights { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tl-highlight { font-size: 12px; color: #065f46; background: var(--success-light); padding: 3px 9px; border-radius: 5px; font-weight: 500; }
+    .tl-sub { margin-top: 10px; padding-left: 12px; border-left: 2px solid var(--line); display: flex; flex-direction: column; gap: 4px; }
+    .tl-sub div { font-size: 12px; color: var(--muted); }
+    .tl-sub b { color: var(--text); font-weight: 600; }
 
     /* ── FORMAÇÃO ── */
-    .edu-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 14px;
-    }
-
-    .edu-card {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .edu-type {
-      font-size: 10px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--primary);
-    }
-
-    .edu-name {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 14px;
-      font-weight: 700;
-      line-height: 1.3;
-    }
-
+    .edu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 14px; }
+    .edu-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; display: flex; flex-direction: column; gap: 6px; }
+    .edu-type { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--primary); }
+    .edu-name { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 700; line-height: 1.3; }
     .edu-inst { font-size: 12px; color: var(--muted); }
-    .edu-period { font-size: 11px; color: var(--muted); margin-top: auto; }
-
-    .edu-badge {
-      display: inline-block;
-      font-size: 10px;
-      font-weight: 700;
-      padding: 2px 8px;
-      border-radius: 4px;
-      background: #fef3c7;
-      color: #b45309;
-      width: fit-content;
-    }
-
+    .edu-badge { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: var(--amber-light); color: var(--amber); width: fit-content; margin-top: auto; }
     .edu-badge.done { background: var(--success-light); color: #065f46; }
+    .subhead { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; margin: 32px 0 14px; }
+
+    .lang-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+    .lang-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px; }
+    .lang-name { font-weight: 700; font-size: 14px; margin-bottom: 2px; }
+    .lang-level { font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+    .bar { height: 6px; background: var(--line); border-radius: 4px; overflow: hidden; }
+    .bar i { display: block; height: 100%; background: var(--primary); border-radius: 4px; }
 
     /* ── CONTATO ── */
-    .contact-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
+    .contact-box { background: #0f172a; border-radius: var(--radius); padding: 32px; color: #e2e8f0; }
+    .contact-box h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; color: #fff; margin-bottom: 6px; }
+    .contact-box p { color: #94a3b8; font-size: 14px; margin-bottom: 22px; max-width: 640px; }
+    .contact-grid { display: flex; flex-wrap: wrap; gap: 10px; }
 
-    .contact-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 20px;
-      border-radius: var(--radius-sm);
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 600;
-      border: 1px solid var(--line);
-      background: var(--surface);
-      color: var(--text);
-      transition: all 0.15s;
-    }
-
-    .contact-link:hover { border-color: #c7d2fe; color: var(--primary); background: var(--primary-light); }
-
-    /* ── FOOTER ── */
-    footer {
-      background: #0f172a;
-      color: #475569;
-      text-align: center;
-      padding: 28px 32px;
-      font-size: 13px;
-    }
+    footer { background: #0f172a; color: #475569; text-align: center; padding: 26px 32px; font-size: 13px; }
+    footer a { color: #818cf8; text-decoration: none; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
-      .hero-inner { padding: 48px 20px 40px; }
-      .page { padding: 0 20px; }
+      .topbar-inner { padding: 10px 16px; }
+      .nav a { display: none; }
+      .hero-inner { padding: 44px 16px 40px; }
+      .page { padding: 0 16px; }
       .about-grid { grid-template-columns: 1fr; }
-      .hero-stats { gap: 20px; }
-      .stat { padding-right: 20px; margin-right: 20px; }
+      .hero-stats { grid-template-columns: repeat(3, 1fr); row-gap: 20px; }
+      .stat:nth-child(4) { padding-left: 0; border-left: none; }
+      .contact-box { padding: 24px 18px; }
     }
-
     @media (max-width: 480px) {
-      .hero-stats { flex-direction: column; gap: 16px; }
-      .stat { border-right: none; padding-right: 0; margin-right: 0; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 16px; }
-      .stat:last-child { border-bottom: none; padding-bottom: 0; }
+      .hero-stats { grid-template-columns: 1fr 1fr; }
+      .stat { padding: 0 0 0 14px; }
+      .stat:nth-child(odd) { padding-left: 0; border-left: none; }
+      .stat:nth-child(4) { padding-left: 14px; border-left: 1px solid rgba(255,255,255,0.08); }
+      .btn { width: 100%; justify-content: center; }
+    }
+    @media print {
+      .topbar, .hero-grid-bg, .lang-switch { display: none !important; }
+      .hero, .contact-box, footer { background: #fff !important; color: #000 !important; }
+      .hero h1, .contact-box h3 { color: #000 !important; }
+      section { padding: 24px 0; }
     }
   </style>
 </head>
 <body>
 
+<!-- ══════════ TOP BAR ══════════ -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="#top">Filipe<span>.</span>Santos</a>
+    <nav class="nav" aria-label="Secções">
+      <a href="#perfil"><span class="pt">Perfil</span><span class="en">Profile</span></a>
+      <a href="#funcoes"><span class="pt">Funções</span><span class="en">Roles</span></a>
+      <a href="#competencias"><span class="pt">Competências</span><span class="en">Skills</span></a>
+      <a href="#projetos"><span class="pt">Projetos</span><span class="en">Projects</span></a>
+      <a href="#carreira"><span class="pt">Carreira</span><span class="en">Career</span></a>
+      <a href="#contacto"><span class="pt">Contacto</span><span class="en">Contact</span></a>
+      <div class="lang-switch" role="group" aria-label="Idioma / Language">
+        <button type="button" data-set-lang="pt" aria-pressed="true">PT</button>
+        <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
 <!-- ══════════ HERO ══════════ -->
-<div class="hero">
+<div class="hero" id="top">
   <div class="hero-grid-bg"></div>
   <div class="hero-inner">
 
-    <div class="hero-eyebrow">disponível para oportunidades</div>
+    <div class="hero-eyebrow">
+      <span class="pt">disponível · relocação para Portugal / Espanha em 2027</span>
+      <span class="en">available · relocating to Portugal / Spain in 2027</span>
+    </div>
 
     <h1>Filipe Santos</h1>
-    <p class="hero-role">Desenvolvedor Full Stack &amp; QA</p>
-    <p class="hero-desc">
-      <strong>14 anos de infraestrutura de redes</strong> me ensinaram o que sistemas precisam para funcionar de verdade. Hoje aplico esse olhar para <strong>construir e testar software</strong> — com sistemas já rodando em produção.
+    <p class="hero-role">Telecom Network Operations · GPON · DWDM · OTN &nbsp;|&nbsp; QA &amp; Full-Stack</p>
+
+    <p class="hero-desc pt">
+      <strong>14+ anos em telecomunicações</strong> — de instalador de campo a supervisor de operações de rede, a coordenar equipas de até <strong>25 técnicos</strong> e a manter <strong>SLA B2B acima de 95%</strong>. Licenciado em Análise e Desenvolvimento de Sistemas, junto a visão de infraestrutura com software: <strong>dois sistemas web meus estão em produção</strong>.
+    </p>
+    <p class="hero-desc en">
+      <strong>14+ years in telecommunications</strong> — from field installer to network operations supervisor, coordinating teams of up to <strong>25 technicians</strong> and keeping <strong>B2B SLA above 95%</strong>. With a degree in Systems Analysis and Development, I bring infrastructure know-how into software: <strong>two web systems I built are in daily production use</strong>.
     </p>
 
     <div class="hero-links">
-      <a class="btn btn-primary" href="https://github.com/Filipe-Bina" target="_blank">⌥ GitHub</a>
-      <a class="btn btn-ghost" href="https://www.linkedin.com/in/filipe-de-souza-santos-21aa7a86/" target="_blank">in LinkedIn</a>
+      <a class="btn btn-primary" href="cv/Filipe_Santos_CV_EN.pdf" target="_blank" rel="noopener">⬇ <span class="pt">CV em inglês (PDF)</span><span class="en">Download CV (PDF)</span></a>
+      <a class="btn btn-ghost" href="cv/Filipe_Santos_CV_Europass_PT.pdf" target="_blank" rel="noopener">⬇ <span class="pt">CV Europass (PT)</span><span class="en">Europass CV (Portuguese)</span></a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/filipe-de-souza-santos-21aa7a86/" target="_blank" rel="noopener">in LinkedIn</a>
       <a class="btn btn-ghost" href="mailto:filipes_santos@hotmail.com">✉ filipes_santos@hotmail.com</a>
-      <a class="btn btn-ghost" href="tel:+5512992307649">📱 +55 12 99230-7649</a>
+      <a class="btn btn-ghost" href="https://github.com/Filipe-Bina" target="_blank" rel="noopener">⌥ GitHub</a>
     </div>
 
     <div class="hero-stats">
       <div class="stat">
         <div class="stat-val">14<span>+</span></div>
-        <div class="stat-label">Anos em TI & Telecom</div>
+        <div class="stat-label"><span class="pt">Anos em telecom</span><span class="en">Years in telecom</span></div>
       </div>
       <div class="stat">
-        <div class="stat-val">2<span></span></div>
-        <div class="stat-label">Sistemas em produção</div>
-      </div>
-      <div class="stat">
-        <div class="stat-val">25<span></span></div>
-        <div class="stat-label">Técnicos liderados</div>
+        <div class="stat-val">25</div>
+        <div class="stat-label"><span class="pt">Técnicos coordenados</span><span class="en">Technicians led</span></div>
       </div>
       <div class="stat">
         <div class="stat-val">95<span>%+</span></div>
-        <div class="stat-label">SLA B2B mantido</div>
+        <div class="stat-label"><span class="pt">SLA B2B</span><span class="en">B2B SLA</span></div>
+      </div>
+      <div class="stat">
+        <div class="stat-val"><span>−</span>20<span>%</span></div>
+        <div class="stat-label"><span class="pt">Falhas recorrentes em fibra</span><span class="en">Recurring fibre failures</span></div>
+      </div>
+      <div class="stat">
+        <div class="stat-val">2</div>
+        <div class="stat-label"><span class="pt">Sistemas em produção</span><span class="en">Systems in production</span></div>
       </div>
     </div>
 
@@ -639,216 +388,332 @@
 </div>
 
 <!-- ══════════ CONTEÚDO ══════════ -->
-<div class="page">
+<main class="page">
 
-  <!-- SOBRE -->
-  <section>
-    <p class="sec-label">// sobre</p>
-    <h2 class="sec-title">De Técnico de Dados II a Desenvolvedor e Quality Assurance</h2>
-    <p class="sec-sub">Uma transição que faz sentido — não uma mudança do zero.</p>
+  <!-- PERFIL -->
+  <section id="perfil">
+    <p class="sec-label">// <span class="pt">perfil</span><span class="en">profile</span></p>
+    <h2 class="sec-title pt">Infraestrutura de telecom na prática, com olhar de software</h2>
+    <h2 class="sec-title en">Hands-on telecom infrastructure, with a software mindset</h2>
 
     <div class="about-grid">
-      <div class="about-text">
-        <p>
-          Comecei como técnico de campo e fui promovido <strong>7 vezes em 14 anos</strong>, chegando a supervisionar uma equipe de 25 técnicos de campo na Ability Tecnologia. Toda essa trajetória me deu algo raro: entendo profundamente <strong>como sistemas falham na prática</strong>.
-        </p>
-        <p>
-          Desde 2022, estou construindo essa base técnica em software — com cursos em Full Stack (HTML, CSS, JS, Node.js, React) e QA. Mas ao contrário de quem está aprendendo no teórico, <strong>eu já tenho sistemas reais em produção</strong>, usados por equipes corporativas no dia a dia.
-        </p>
-        <p>
-          Busco uma oportunidade como <strong>desenvolvedor júnior ou analista de QA</strong> onde eu possa crescer rápido — trazendo minha experiência com SLA, operações críticas e liderança de equipe para o mundo do software.
-        </p>
+      <div class="about-text pt">
+        <p>Comecei como instalador auxiliar e fui <strong>promovido 7 vezes em 3 empresas</strong>. Hoje, na Ability Tecnologia (prestadora da Vivo/Telefónica), apoio a supervisão de operações de campo: coordeno até 25 técnicos, faço a gestão diária de tickets e ordens de trabalho e acompanho filas de SLA de grandes clientes empresariais.</p>
+        <p>Opero e monitorizo equipamentos de transmissão <strong>DWDM/SDH Huawei e Nokia</strong> e redes Metro-Ethernet, e trabalho com as equipas de <strong>NOC</strong> em incidentes da camada de transporte e em manutenções planeadas. Implementei rotinas de manutenção preventiva que reduziram até <strong>20% as falhas recorrentes</strong> em ligações de fibra.</p>
+        <p>Em paralelo, concluí a licenciatura em <strong>Análise e Desenvolvimento de Sistemas</strong> (dez/2025), estou a especializar-me em <strong>QA</strong> e desenvolvi sistemas internos que a empresa usa todos os dias.</p>
       </div>
+      <div class="about-text en">
+        <p>I started as an auxiliary installer and was <strong>promoted 7 times across 3 companies</strong>. Today, at Ability Tecnologia (a Vivo/Telefónica contractor), I support field operations supervision: coordinating up to 25 technicians, managing daily trouble tickets and work orders, and tracking SLA queues for large enterprise clients.</p>
+        <p>I operate and monitor <strong>Huawei and Nokia DWDM/SDH</strong> transport equipment and Metro-Ethernet networks, and work alongside <strong>NOC</strong> teams on transport-layer incidents and planned maintenance. The preventive maintenance routines I introduced cut <strong>recurring fibre-link failures by up to 20%</strong>.</p>
+        <p>In parallel, I completed a degree in <strong>Systems Analysis and Development</strong> (Dec 2025), I am specialising in <strong>QA</strong>, and I built internal systems the company uses every day.</p>
+      </div>
+
       <div class="about-pills">
         <div class="about-pill">
-          <div class="pill-icon blue">🏗️</div>
+          <div class="pill-icon blue">📡</div>
           <div>
-            <div class="pill-text">Sistemas já em produção</div>
-            <div class="pill-sub">Não só projetos de estudo — código rodando em empresas reais</div>
+            <div class="pill-text pt">Camada física a transporte</div>
+            <div class="pill-text en">Physical layer to transport</div>
+            <div class="pill-sub">GPON · FTTX · DWDM · OTN · SDH · Metro-Ethernet</div>
           </div>
         </div>
         <div class="about-pill">
-          <div class="pill-icon purple">🧠</div>
+          <div class="pill-icon purple">👥</div>
           <div>
-            <div class="pill-text">Visão de infraestrutura</div>
-            <div class="pill-sub">14 anos entendendo onde sistemas quebram e por quê</div>
+            <div class="pill-text pt">Liderança e SLA</div>
+            <div class="pill-text en">Leadership &amp; SLA</div>
+            <div class="pill-sub pt">Equipas de até 25 técnicos · clientes B2B · 95%+ no prazo</div>
+            <div class="pill-sub en">Teams of up to 25 technicians · B2B clients · 95%+ on time</div>
           </div>
         </div>
         <div class="about-pill">
-          <div class="pill-icon green">📍</div>
+          <div class="pill-icon green">💻</div>
           <div>
-            <div class="pill-text">São José dos Campos — SP</div>
-            <div class="pill-sub">Aberto a remoto, híbrido ou relocação</div>
+            <div class="pill-text pt">Software em produção</div>
+            <div class="pill-text en">Software in production</div>
+            <div class="pill-sub">JavaScript · Node.js · PostgreSQL · Supabase</div>
+          </div>
+        </div>
+        <div class="about-pill">
+          <div class="pill-icon amber">🎖️</div>
+          <div>
+            <div class="pill-text pt">5 anos na Força Aérea Brasileira</div>
+            <div class="pill-text en">5 years in the Brazilian Air Force</div>
+            <div class="pill-sub pt">Logística e segurança em ambiente crítico</div>
+            <div class="pill-sub en">Logistics &amp; security in mission-critical settings</div>
           </div>
         </div>
       </div>
     </div>
+
+    <div class="reloc">
+      <div>
+        <div class="reloc-k"><span class="pt">Localização atual</span><span class="en">Current location</span></div>
+        <div class="reloc-v">São José dos Campos, Brasil</div>
+      </div>
+      <div>
+        <div class="reloc-k"><span class="pt">Destino</span><span class="en">Target</span></div>
+        <div class="reloc-v"><span class="pt">Portugal · Espanha (com família)</span><span class="en">Portugal · Spain (with family)</span></div>
+      </div>
+      <div>
+        <div class="reloc-k"><span class="pt">Disponibilidade</span><span class="en">Availability</span></div>
+        <div class="reloc-v"><span class="pt">2027 · entrevistas online já</span><span class="en">2027 · online interviews now</span></div>
+      </div>
+      <div>
+        <div class="reloc-k"><span class="pt">Autorização de trabalho</span><span class="en">Work authorisation</span></div>
+        <div class="reloc-v"><span class="pt">Necessita de patrocínio de visto</span><span class="en">Requires visa sponsorship</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FUNÇÕES -->
+  <section id="funcoes">
+    <p class="sec-label">// <span class="pt">onde posso contribuir</span><span class="en">where I can contribute</span></p>
+    <h2 class="sec-title pt">Funções que procuro</h2>
+    <h2 class="sec-title en">Roles I'm looking for</h2>
+    <p class="sec-sub pt">Áreas onde a minha experiência traz resultado desde o primeiro dia — e onde estou a crescer.</p>
+    <p class="sec-sub en">Areas where my experience delivers from day one — and where I'm growing.</p>
+
+    <div class="roles">
+      <div class="role">
+        <div class="role-top"><div class="role-icon">🛰️</div>
+          <div class="role-name pt">Operações de Rede / NOC (N1–N2)</div>
+          <div class="role-name en">Network Operations / NOC (L1–L2)</div>
+        </div>
+        <div class="role-desc pt">Monitorização, análise de alarmes, gestão de incidentes e escalonamento em redes de transporte e acesso.</div>
+        <div class="role-desc en">Monitoring, alarm analysis, incident handling and escalation on transport and access networks.</div>
+        <span class="fit strong pt">experiência direta</span><span class="fit strong en">direct experience</span>
+      </div>
+      <div class="role">
+        <div class="role-top"><div class="role-icon">🧵</div>
+          <div class="role-name pt">Técnico de Fibra / Transmissão</div>
+          <div class="role-name en">Fibre / Transmission Technician</div>
+        </div>
+        <div class="role-desc pt">GPON/FTTX, fusões, OTDR e Power Meter, diagnóstico em DWDM/SDH e Metro-Ethernet.</div>
+        <div class="role-desc en">GPON/FTTX, splicing, OTDR and power meter testing, DWDM/SDH and Metro-Ethernet troubleshooting.</div>
+        <span class="fit strong pt">experiência direta</span><span class="fit strong en">direct experience</span>
+      </div>
+      <div class="role">
+        <div class="role-top"><div class="role-icon">🧭</div>
+          <div class="role-name pt">Coordenação de Equipas de Campo</div>
+          <div class="role-name en">Field Operations Coordination</div>
+        </div>
+        <div class="role-desc pt">Despacho de ordens de trabalho, controlo de SLA, segurança no trabalho e formação de técnicos.</div>
+        <div class="role-desc en">Work-order dispatch, SLA control, health &amp; safety and technician onboarding.</div>
+        <span class="fit strong pt">experiência direta</span><span class="fit strong en">direct experience</span>
+      </div>
+      <div class="role">
+        <div class="role-top"><div class="role-icon">🎧</div>
+          <div class="role-name pt">Suporte Técnico / Service Desk</div>
+          <div class="role-name en">Technical Support / Service Desk</div>
+        </div>
+        <div class="role-desc pt">Diagnóstico e resolução de incidentes, gestão de tickets e comunicação com clientes empresariais.</div>
+        <div class="role-desc en">Incident diagnosis and resolution, ticket management and enterprise customer communication.</div>
+        <span class="fit strong pt">experiência relacionada</span><span class="fit strong en">related experience</span>
+      </div>
+      <div class="role">
+        <div class="role-top"><div class="role-icon">🧪</div>
+          <div class="role-name pt">QA / Desenvolvimento Júnior</div>
+          <div class="role-name en">QA / Junior Developer</div>
+        </div>
+        <div class="role-desc pt">Testes funcionais, análise de falhas e desenvolvimento web com JavaScript, Node.js e PostgreSQL.</div>
+        <div class="role-desc en">Functional testing, failure analysis and web development with JavaScript, Node.js and PostgreSQL.</div>
+        <span class="fit growing pt">em crescimento</span><span class="fit growing en">growing</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPETÊNCIAS -->
+  <section id="competencias">
+    <p class="sec-label">// <span class="pt">competências</span><span class="en">skills</span></p>
+    <h2 class="sec-title pt">Competências técnicas</h2>
+    <h2 class="sec-title en">Technical skills</h2>
+    <p class="sec-sub pt">O que uso no dia a dia — e o que estou a estudar agora.</p>
+    <p class="sec-sub en">What I use every day — and what I'm studying now.</p>
+
+    <div class="stack-groups">
+      <div class="stack-group featured">
+        <div class="stack-group-title">Telecom &amp; <span class="pt">Redes</span><span class="en">Networks</span></div>
+        <div class="stack-items">
+          <div class="stack-item"><span class="stack-dot"></span> GPON / XGS-PON / FTTX / FTTB</div>
+          <div class="stack-item"><span class="stack-dot"></span> DWDM · OTN · SDH</div>
+          <div class="stack-item"><span class="stack-dot"></span> Metro-Ethernet</div>
+          <div class="stack-item"><span class="stack-dot"></span> Huawei OSN · Nokia</div>
+          <div class="stack-item"><span class="stack-dot"></span> OTDR · Power Meter</div>
+          <div class="stack-item"><span class="stack-dot"></span> VoIP · VDSL</div>
+          <div class="stack-item"><span class="stack-dot"></span> <span class="pt">Plataformas EMS/NMS</span><span class="en">EMS/NMS platforms</span></div>
+          <div class="stack-item"><span class="stack-dot learning"></span> Fortinet <span class="learning-note pt">básico</span><span class="learning-note en">basic</span></div>
+        </div>
+      </div>
+      <div class="stack-group featured">
+        <div class="stack-group-title"><span class="pt">Operações</span><span class="en">Operations</span></div>
+        <div class="stack-items">
+          <div class="stack-item"><span class="stack-dot"></span> <span class="pt">Gestão de SLA B2B</span><span class="en">B2B SLA management</span></div>
+          <div class="stack-item"><span class="stack-dot"></span> <span class="pt">Tickets e ordens de trabalho</span><span class="en">Trouble tickets &amp; work orders</span></div>
+          <div class="stack-item"><span class="stack-dot"></span> <span class="pt">Incidentes com NOC</span><span class="en">Incident handling with NOC</span></div>
+          <div class="stack-item"><span class="stack-dot"></span> <span class="pt">Manutenção preventiva</span><span class="en">Preventive maintenance</span></div>
+          <div class="stack-item"><span class="stack-dot"></span> <span class="pt">Liderança de equipas</span><span class="en">Team leadership</span></div>
+          <div class="stack-item"><span class="stack-dot"></span> <span class="pt">Formação de técnicos</span><span class="en">Technician onboarding</span></div>
+          <div class="stack-item"><span class="stack-dot"></span> SAP · MS Office</div>
+        </div>
+      </div>
+      <div class="stack-group">
+        <div class="stack-group-title"><span class="pt">Desenvolvimento</span><span class="en">Development</span></div>
+        <div class="stack-items">
+          <div class="stack-item"><span class="stack-dot"></span> JavaScript ES6+ · HTML · CSS</div>
+          <div class="stack-item"><span class="stack-dot"></span> Node.js · REST API</div>
+          <div class="stack-item"><span class="stack-dot"></span> SQL · PostgreSQL</div>
+          <div class="stack-item"><span class="stack-dot"></span> Supabase · RLS</div>
+          <div class="stack-item"><span class="stack-dot"></span> Git · GitHub · Render</div>
+          <div class="stack-item"><span class="stack-dot learning"></span> Python <span class="learning-note pt">a estudar</span><span class="learning-note en">studying</span></div>
+          <div class="stack-item"><span class="stack-dot learning"></span> React · TypeScript <span class="learning-note pt">a estudar</span><span class="learning-note en">studying</span></div>
+        </div>
+      </div>
+      <div class="stack-group">
+        <div class="stack-group-title">QA &amp; <span class="pt">Testes</span><span class="en">Testing</span></div>
+        <div class="stack-items">
+          <div class="stack-item"><span class="stack-dot"></span> <span class="pt">Análise de falhas</span><span class="en">Failure analysis</span></div>
+          <div class="stack-item"><span class="stack-dot"></span> <span class="pt">Testes funcionais</span><span class="en">Functional testing</span></div>
+          <div class="stack-item"><span class="stack-dot learning"></span> <span class="pt">QA manual e automatizado</span><span class="en">Manual &amp; automated QA</span> <span class="learning-note">DIO</span></div>
+          <div class="stack-item"><span class="stack-dot learning"></span> Jest · Cypress <span class="learning-note pt">a estudar</span><span class="learning-note en">studying</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="legend">
+      <span><span class="stack-dot"></span> <span class="pt">uso profissional</span><span class="en">professional use</span></span>
+      <span><span class="stack-dot learning"></span> <span class="pt">em aprendizagem</span><span class="en">learning</span></span>
+    </div>
   </section>
 
   <!-- PROJETOS -->
-  <section>
-    <p class="sec-label">// projetos</p>
-    <h2 class="sec-title">Sistemas em produção</h2>
-    <p class="sec-sub">Não são exemplos de curso — são sistemas usados por equipes reais.</p>
+  <section id="projetos">
+    <p class="sec-label">// <span class="pt">projetos</span><span class="en">projects</span></p>
+    <h2 class="sec-title pt">Sistemas em produção</h2>
+    <h2 class="sec-title en">Systems in production</h2>
+    <p class="sec-sub pt">Ferramentas que construí para resolver problemas reais da operação de campo — usadas pelas equipas todos os dias.</p>
+    <p class="sec-sub en">Tools I built to solve real field-operations problems — used by teams every day.</p>
 
     <div class="proj-grid">
 
       <div class="proj-card">
         <div class="proj-head">
           <div class="proj-icon">📊</div>
-          <span class="live-badge"><span class="live-dot"></span> Live</span>
+          <span class="badge live"><span class="live-dot"></span> <span class="pt">Em produção</span><span class="en">Live</span></span>
         </div>
         <div class="proj-name">GTD RH Telemetry</div>
-        <div class="proj-desc">
-          Dashboard corporativo de telemetria operacional com controle de status de funcionários por hierarquia, equipe e cargo. Painel admin com CRUD completo e visualização matricial em tempo real.
-        </div>
+        <div class="proj-problem pt">Problema: saber em tempo real o estado de cada técnico</div>
+        <div class="proj-problem en">Problem: knowing each technician's status in real time</div>
+        <div class="proj-desc pt">Dashboard corporativo de telemetria operacional com estado dos colaboradores por hierarquia, equipa e cargo. Painel de administração com CRUD completo e vista matricial em tempo real.</div>
+        <div class="proj-desc en">Corporate operational telemetry dashboard showing staff status by hierarchy, team and role. Admin panel with full CRUD and a real-time matrix view.</div>
         <div class="proj-tags">
-          <span class="tag">Vanilla JS</span>
-          <span class="tag">Supabase</span>
-          <span class="tag">PostgreSQL</span>
-          <span class="tag">CSS3</span>
-          <span class="tag">Render</span>
+          <span class="tag">JavaScript</span><span class="tag">Supabase</span><span class="tag">PostgreSQL</span><span class="tag">Render</span>
         </div>
         <div class="proj-links">
-          <a class="proj-link" href="https://gtd-rh-telemetry.onrender.com" target="_blank">↗ Ver sistema</a>
-          <a class="proj-link" href="https://github.com/Filipe-Bina/gtd-rh-telemetry" target="_blank">⌥ Código</a>
+          <a class="proj-link" href="https://gtd-rh-telemetry.onrender.com" target="_blank" rel="noopener">↗ <span class="pt">Ver sistema</span><span class="en">Live demo</span></a>
+          <a class="proj-link" href="https://github.com/Filipe-Bina/gtd-rh-telemetry" target="_blank" rel="noopener">⌥ <span class="pt">Código</span><span class="en">Code</span></a>
         </div>
       </div>
 
       <div class="proj-card">
         <div class="proj-head">
           <div class="proj-icon">📱</div>
-          <span class="live-badge"><span class="live-dot"></span> Live</span>
+          <span class="badge live"><span class="live-dot"></span> <span class="pt">Em produção</span><span class="en">Live</span></span>
         </div>
         <div class="proj-name">GTD Ability Tecnologia</div>
-        <div class="proj-desc">
-          Portal de campo para técnicos: login por RE corporativo, solicitações de combustível e interface, consulta de scripts de roteadores, mural de avisos com confirmação de leitura. Auth via funções seguras no PostgreSQL.
-        </div>
+        <div class="proj-problem pt">Problema: pedidos e informação de campo dispersos</div>
+        <div class="proj-problem en">Problem: scattered field requests and information</div>
+        <div class="proj-desc pt">Portal para técnicos de campo: login por número de colaborador, pedidos de combustível, consulta de scripts de routers e mural de avisos com confirmação de leitura. Autenticação com funções seguras e RLS no PostgreSQL.</div>
+        <div class="proj-desc en">Field technician portal: employee-ID login, fuel requests, router script library and notice board with read receipts. Authentication via secure PostgreSQL functions and row-level security.</div>
         <div class="proj-tags">
-          <span class="tag">Node.js</span>
-          <span class="tag">Supabase</span>
-          <span class="tag">RLS</span>
-          <span class="tag">PostgreSQL</span>
-          <span class="tag">Render</span>
+          <span class="tag">Node.js</span><span class="tag">Supabase</span><span class="tag">RLS</span><span class="tag">PostgreSQL</span>
         </div>
         <div class="proj-links">
-          <a class="proj-link" href="https://gtd-ability-tecnologia.onrender.com" target="_blank">↗ Ver sistema</a>
-          <a class="proj-link" href="https://github.com/Filipe-Bina" target="_blank">⌥ GitHub</a>
+          <a class="proj-link" href="https://gtd-ability-tecnologia.onrender.com" target="_blank" rel="noopener">↗ <span class="pt">Ver sistema</span><span class="en">Live demo</span></a>
+          <a class="proj-link" href="https://github.com/Filipe-Bina" target="_blank" rel="noopener">⌥ GitHub</a>
         </div>
       </div>
 
-      <div class="proj-card" style="border-style: dashed; background: var(--surface-2);">
+      <div class="proj-card">
         <div class="proj-head">
-          <div class="proj-icon" style="background:#f1f5f9; font-size:18px;">🔧</div>
-          <span style="font-size:11px; color:var(--muted); font-weight:600;">Em construção</span>
+          <div class="proj-icon">🗓️</div>
+          <span class="badge internal"><span class="pt">Uso interno</span><span class="en">Internal tool</span></span>
         </div>
-        <div class="proj-name" style="color:var(--muted);">Próximo projeto</div>
-        <div class="proj-desc">
-          Expandindo o portfólio com foco em QA automatizado e projetos com React. Em breve.
-        </div>
+        <div class="proj-name"><span class="pt">Gerenciador de Escalas</span><span class="en">On-Call Scheduler</span></div>
+        <div class="proj-problem pt">Problema: escalas de fim de semana manuais e desequilibradas</div>
+        <div class="proj-problem en">Problem: manual, unbalanced weekend rotas</div>
+        <div class="proj-desc pt">Aplicação para gerir as escalas de plantão de fim de semana de técnicos em três regiões (SJC, Taubaté, Litoral), com algoritmo de distribuição automática e regras de equidade.</div>
+        <div class="proj-desc en">App that manages weekend on-call rotas for technicians across three regions (SJC, Taubaté, coast), with an automatic scheduling algorithm and fairness rules.</div>
         <div class="proj-tags">
-          <span class="tag">React</span>
-          <span class="tag">Jest</span>
-          <span class="tag">QA</span>
+          <span class="tag">Python</span><span class="tag">Flask</span><span class="tag">SQL</span>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- STACK -->
-  <section>
-    <p class="sec-label">// stack</p>
-    <h2 class="sec-title">Habilidades técnicas</h2>
-    <p class="sec-sub">Tecnologias que uso em projetos reais — e as que estou dominando agora.</p>
-
-    <div class="stack-groups">
-      <div class="stack-group">
-        <div class="stack-group-title">Frontend</div>
-        <div class="stack-items">
-          <div class="stack-item"><span class="stack-dot"></span> JavaScript ES6+</div>
-          <div class="stack-item"><span class="stack-dot"></span> HTML5 / CSS3</div>
-          <div class="stack-item"><span class="stack-dot learning"></span> React <span class="learning-note">estudando</span></div>
-          <div class="stack-item"><span class="stack-dot learning"></span> TypeScript <span class="learning-note">estudando</span></div>
-        </div>
-      </div>
-      <div class="stack-group">
-        <div class="stack-group-title">Backend</div>
-        <div class="stack-items">
-          <div class="stack-item"><span class="stack-dot"></span> Node.js</div>
-          <div class="stack-item"><span class="stack-dot"></span> PostgreSQL</div>
-          <div class="stack-item"><span class="stack-dot"></span> Supabase</div>
-          <div class="stack-item"><span class="stack-dot learning"></span> Python <span class="learning-note">estudando</span></div>
-        </div>
-      </div>
-      <div class="stack-group">
-        <div class="stack-group-title">QA &amp; Testes</div>
-        <div class="stack-items">
-          <div class="stack-item"><span class="stack-dot"></span> Lógica de testes</div>
-          <div class="stack-item"><span class="stack-dot learning"></span> Jest <span class="learning-note">estudando</span></div>
-          <div class="stack-item"><span class="stack-dot learning"></span> Cypress <span class="learning-note">estudando</span></div>
-          <div class="stack-item"><span class="stack-dot learning"></span> QA Manual/Auto <span class="learning-note">DIO</span></div>
-        </div>
-      </div>
-      <div class="stack-group">
-        <div class="stack-group-title">Infra &amp; DevOps</div>
-        <div class="stack-items">
-          <div class="stack-item"><span class="stack-dot"></span> Git / GitHub</div>
-          <div class="stack-item"><span class="stack-dot"></span> Deploy (Render)</div>
-          <div class="stack-item"><span class="stack-dot"></span> RLS / Auth segura</div>
-          <div class="stack-item"><span class="stack-dot"></span> REST API</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TRAJETÓRIA -->
-  <section>
-    <p class="sec-label">// trajetória</p>
-    <h2 class="sec-title">Carreira</h2>
-    <p class="sec-sub">7 promoções em 3 empresas — de instalador a supervisor a desenvolvedor.</p>
+  <!-- CARREIRA -->
+  <section id="carreira">
+    <p class="sec-label">// <span class="pt">carreira</span><span class="en">career</span></p>
+    <h2 class="sec-title pt">Trajetória</h2>
+    <h2 class="sec-title en">Experience</h2>
+    <p class="sec-sub pt">7 promoções em 3 empresas — de instalador auxiliar a supervisão de operações de rede.</p>
+    <p class="sec-sub en">7 promotions across 3 companies — from auxiliary installer to network operations supervision.</p>
 
     <div class="timeline">
 
       <div class="tl-item">
+        <div class="tl-dot highlight">📡</div>
+        <div class="tl-body">
+          <div class="tl-period"><span class="pt">dez 2016 – presente</span><span class="en">Dec 2016 – present</span></div>
+          <div class="tl-role pt">Técnico de Dados II · Apoio à Supervisão de Operações de Campo</div>
+          <div class="tl-role en">Data Technician II · Field Operations Supervisor (Support)</div>
+          <div class="tl-company">Ability Tecnologia e Serviços S/A · São José dos Campos · <span class="pt">cliente Vivo/Telefónica</span><span class="en">Vivo/Telefónica contractor</span></div>
+          <ul class="tl-points pt">
+            <li>Coordenação de até 25 técnicos de campo, produtividade e segurança no trabalho.</li>
+            <li>Gestão de filas de SLA B2B com 95%+ de cumprimento em ativações e reparações.</li>
+            <li>Operação e monitorização de DWDM/SDH (Huawei, Nokia) e Metro-Ethernet; incidentes com o NOC.</li>
+            <li>Manutenção preventiva que reduziu até 20% as falhas recorrentes em ligações de fibra.</li>
+          </ul>
+          <ul class="tl-points en">
+            <li>Coordinate up to 25 field technicians, productivity and health &amp; safety.</li>
+            <li>Manage B2B SLA queues with 95%+ on-time delivery for activations and repairs.</li>
+            <li>Operate and monitor DWDM/SDH (Huawei, Nokia) and Metro-Ethernet; incident handling with NOC teams.</li>
+            <li>Preventive maintenance that cut recurring fibre-link failures by up to 20%.</li>
+          </ul>
+          <div class="tl-sub">
+            <div><b>2024 – </b><span class="pt">Técnico de Dados II</span><span class="en">Data Technician II</span></div>
+            <div><b>2022 – 2024 </b><span class="pt">Técnico de Dados I</span><span class="en">Data Technician I</span></div>
+            <div><b>2020 – 2022 </b><span class="pt">Técnico Multiskill</span><span class="en">Multiskill Technician</span></div>
+            <div><b>2016 – 2020 </b><span class="pt">Técnico de Campo ADSL / FTTX</span><span class="en">ADSL / FTTX Field Technician</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
         <div class="tl-dot highlight">💻</div>
         <div class="tl-body">
-          <div class="tl-period">2024 – presente</div>
-          <div class="tl-role">Desenvolvedor Full Stack (Projetos próprios)</div>
-          <div class="tl-company">Freelance / Open Source</div>
+          <div class="tl-period"><span class="pt">jan 2025 – presente</span><span class="en">Jan 2025 – present</span></div>
+          <div class="tl-role pt">Desenvolvedor Full Stack (projetos próprios)</div>
+          <div class="tl-role en">Full Stack Developer (self-initiated projects)</div>
+          <div class="tl-company pt">Sistemas internos em produção numa empresa de telecom B2B</div>
+          <div class="tl-company en">Internal systems in production at a B2B telecom company</div>
           <div class="tl-highlights">
-            <span class="tl-highlight">2 sistemas em produção</span>
-            <span class="tl-highlight">Supabase + Node.js</span>
-            <span class="tl-highlight">Deploy no Render</span>
+            <span class="tl-highlight">2 <span class="pt">sistemas em produção</span><span class="en">systems in production</span></span>
+            <span class="tl-highlight">Node.js · Supabase · PostgreSQL</span>
           </div>
         </div>
       </div>
 
       <div class="tl-item">
-        <div class="tl-dot highlight">🏗️</div>
+        <div class="tl-dot">🛒</div>
         <div class="tl-body">
-          <div class="tl-period">Set 2022 – presente</div>
-          <div class="tl-role">Técnico de Dados II · Apoio de Supervisor de Campo</div>
-          <div class="tl-company">Ability Tecnologia e Serviços S/A</div>
+          <div class="tl-period"><span class="pt">dez 2015 – out 2016</span><span class="en">Dec 2015 – Oct 2016</span></div>
+          <div class="tl-role pt">Assistente de Prevenção de Perdas</div>
+          <div class="tl-role en">Loss Prevention Assistant</div>
+          <div class="tl-company">Lojas Americanas S.A.</div>
           <div class="tl-highlights">
-            <span class="tl-highlight">25 técnicos liderados</span>
-            <span class="tl-highlight">95%+ SLA B2B</span>
-            <span class="tl-highlight">DWDM / Huawei / Nokia</span>
-            <span class="tl-highlight">GPON / FTTX</span>
-            <span class="tl-highlight">NOC / OTN</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="tl-item">
-        <div class="tl-dot">🔧</div>
-        <div class="tl-body">
-          <div class="tl-period">Dez 2016 – Set 2022</div>
-          <div class="tl-role">Técnico de Telecom</div>
-          <div class="tl-company">Ability Tecnologia e Serviços S/A</div>
-          <div class="tl-highlights">
-            <span class="tl-highlight">GPON / VoIP / VDSL</span>
-            <span class="tl-highlight">3 promoções</span>
+            <span class="tl-highlight">SAP</span>
+            <span class="tl-highlight"><span class="pt">−20% de perdas em 4 meses</span><span class="en">−20% losses in 4 months</span></span>
           </div>
         </div>
       </div>
@@ -856,13 +721,25 @@
       <div class="tl-item">
         <div class="tl-dot">📶</div>
         <div class="tl-body">
-          <div class="tl-period">Jan 2011 – Jul 2015</div>
-          <div class="tl-role">Técnico de Telecom → Sênior</div>
-          <div class="tl-company">Icomon Tecnologia Ltda</div>
+          <div class="tl-period"><span class="pt">jan 2011 – jul 2015</span><span class="en">Jan 2011 – Jul 2015</span></div>
+          <div class="tl-role pt">Técnico de Telecomunicações</div>
+          <div class="tl-role en">Telecommunications Technician</div>
+          <div class="tl-company">Icomon Tecnologia Ltda · <span class="pt">cliente Vivo/Telefónica</span><span class="en">Vivo/Telefónica contractor</span></div>
           <div class="tl-highlights">
-            <span class="tl-highlight">Vivo / Telefônica</span>
-            <span class="tl-highlight">Fibra óptica</span>
+            <span class="tl-highlight"><span class="pt">Fibra ótica · VDSL · VoIP</span><span class="en">Fibre · VDSL · VoIP</span></span>
+            <span class="tl-highlight"><span class="pt">2 promoções</span><span class="en">2 promotions</span></span>
           </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot">🎖️</div>
+        <div class="tl-body">
+          <div class="tl-period"><span class="pt">mar 2005 – nov 2010</span><span class="en">Mar 2005 – Nov 2010</span></div>
+          <div class="tl-role pt">Soldado Especialista — Logística e Segurança</div>
+          <div class="tl-role en">Specialist Soldier — Logistics &amp; Security</div>
+          <div class="tl-company pt">Força Aérea Brasileira (FAB/DECEA)</div>
+          <div class="tl-company en">Brazilian Air Force (FAB/DECEA)</div>
         </div>
       </div>
 
@@ -870,71 +747,131 @@
   </section>
 
   <!-- FORMAÇÃO -->
-  <section>
-    <p class="sec-label">// formação</p>
-    <h2 class="sec-title">Educação &amp; Certificações</h2>
-    <p class="sec-sub">Formação técnica sólida combinada com foco em desenvolvimento.</p>
+  <section id="formacao">
+    <p class="sec-label">// <span class="pt">formação</span><span class="en">education</span></p>
+    <h2 class="sec-title pt">Formação, certificações e idiomas</h2>
+    <h2 class="sec-title en">Education, certifications &amp; languages</h2>
 
     <div class="edu-grid">
-
       <div class="edu-card">
-        <div class="edu-type">Graduação</div>
-        <div class="edu-name">Análise e Desenvolvimento de Sistemas</div>
-        <div class="edu-inst">Anhanguera — São José dos Campos, SP</div>
-        <div class="edu-badge done">Concluído Dez 2025</div>
+        <div class="edu-type"><span class="pt">Licenciatura tecnológica</span><span class="en">Technology degree</span></div>
+        <div class="edu-name pt">Análise e Desenvolvimento de Sistemas</div>
+        <div class="edu-name en">Systems Analysis and Development</div>
+        <div class="edu-inst">Anhanguera Educacional — São José dos Campos</div>
+        <div class="edu-badge done"><span class="pt">Concluído · dez 2025</span><span class="en">Completed · Dec 2025</span></div>
       </div>
-
       <div class="edu-card">
-        <div class="edu-type">Certificação</div>
+        <div class="edu-type"><span class="pt">Formação</span><span class="en">Training</span></div>
         <div class="edu-name">Quality Assurance (QA)</div>
         <div class="edu-inst">DIO — Digital Innovation One</div>
-        <div class="edu-badge">Em andamento 2026</div>
+        <div class="edu-badge"><span class="pt">Em curso · 2026</span><span class="en">In progress · 2026</span></div>
       </div>
-
       <div class="edu-card">
-        <div class="edu-type">Curso</div>
+        <div class="edu-type"><span class="pt">Curso</span><span class="en">Course</span></div>
         <div class="edu-name">Fullstack Web Development</div>
         <div class="edu-inst">B7Web</div>
-        <div class="edu-badge done">Concluído 2023</div>
+        <div class="edu-badge done"><span class="pt">Concluído · 2023</span><span class="en">Completed · 2023</span></div>
       </div>
-
       <div class="edu-card">
-        <div class="edu-type">Curso</div>
+        <div class="edu-type"><span class="pt">Curso</span><span class="en">Course</span></div>
         <div class="edu-name">JavaScript &amp; Web Development</div>
-        <div class="edu-inst">EBAC — British School</div>
-        <div class="edu-badge done">Concluído 2023</div>
+        <div class="edu-inst">EBAC — British School of Creative Arts &amp; Technology</div>
+        <div class="edu-badge done"><span class="pt">Concluído · 2023</span><span class="en">Completed · 2023</span></div>
       </div>
+    </div>
 
+    <h3 class="subhead pt">Certificações</h3>
+    <h3 class="subhead en">Certifications</h3>
+    <div class="edu-grid">
       <div class="edu-card">
-        <div class="edu-type">Curso</div>
-        <div class="edu-name">Programação de Computadores</div>
-        <div class="edu-inst">ProgramadorBR</div>
-        <div class="edu-badge done">Concluído 2023</div>
+        <div class="edu-type">Cisco</div>
+        <div class="edu-name">Introduction to Cybersecurity</div>
+        <div class="edu-inst"><span class="pt">jul 2025</span><span class="en">Jul 2025</span></div>
       </div>
+      <div class="edu-card">
+        <div class="edu-type">Amazon Web Services</div>
+        <div class="edu-name">Cloud Job Roles</div>
+        <div class="edu-inst"><span class="pt">jun 2025</span><span class="en">Jun 2025</span></div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-type">Vivo (Telefónica)</div>
+        <div class="edu-name pt">Redes FTTH/FTTA conectorizadas, fusão ótica, orçamento ótico, TCP/IP</div>
+        <div class="edu-name en">FTTH/FTTA connectorised networks, optical splicing, optical budget, TCP/IP</div>
+        <div class="edu-inst"><span class="pt">out 2021</span><span class="en">Oct 2021</span></div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-type">SENAI CETIQT</div>
+        <div class="edu-name pt">Tecnologias de Informação e Comunicação</div>
+        <div class="edu-name en">Information and Communication Technology</div>
+        <div class="edu-inst"><span class="pt">out 2021</span><span class="en">Oct 2021</span></div>
+      </div>
+    </div>
 
+    <h3 class="subhead pt">Idiomas</h3>
+    <h3 class="subhead en">Languages</h3>
+    <div class="lang-grid">
+      <div class="lang-card">
+        <div class="lang-name"><span class="pt">Português</span><span class="en">Portuguese</span></div>
+        <div class="lang-level"><span class="pt">Nativo</span><span class="en">Native</span></div>
+        <div class="bar"><i style="width:100%"></i></div>
+      </div>
+      <div class="lang-card">
+        <div class="lang-name"><span class="pt">Inglês</span><span class="en">English</span></div>
+        <div class="lang-level"><span class="pt">A2 leitura/escrita · B1 compreensão oral · em formação</span><span class="en">A2 reading/writing · B1 listening · actively studying</span></div>
+        <div class="bar"><i style="width:38%"></i></div>
+      </div>
+      <div class="lang-card">
+        <div class="lang-name"><span class="pt">Espanhol</span><span class="en">Spanish</span></div>
+        <div class="lang-level"><span class="pt">A2 · em formação</span><span class="en">A2 · actively studying</span></div>
+        <div class="bar"><i style="width:30%"></i></div>
+      </div>
     </div>
   </section>
 
-  <!-- CONTATO -->
-  <section>
-    <p class="sec-label">// contato</p>
-    <h2 class="sec-title">Vamos conversar</h2>
-    <p class="sec-sub">Aberto a oportunidades como Dev Júnior, QA ou estágio tech. São José dos Campos · Remoto · Relocação.</p>
-
-    <div class="contact-grid">
-      <a class="contact-link" href="mailto:filipes_santos@hotmail.com">✉ filipes_santos@hotmail.com</a>
-      <a class="contact-link" href="tel:+5512992307649">📱 +55 12 99230-7649</a>
-      <a class="contact-link" href="https://www.linkedin.com/in/filipe-de-souza-santos-21aa7a86/" target="_blank">in LinkedIn</a>
-      <a class="contact-link" href="https://github.com/Filipe-Bina" target="_blank">⌥ GitHub</a>
+  <!-- CONTACTO -->
+  <section id="contacto">
+    <div class="contact-box">
+      <h3 class="pt">Vamos conversar?</h3>
+      <h3 class="en">Let's talk</h3>
+      <p class="pt">Procuro funções em operações de rede, telecom, suporte técnico ou QA em Portugal ou Espanha, com início em 2027. Estou disponível para entrevistas online e preciso de apoio no processo de visto de trabalho.</p>
+      <p class="en">I'm looking for network operations, telecom, technical support or QA roles in Portugal or Spain, starting in 2027. I'm available for online interviews and will need support with the work visa process.</p>
+      <div class="contact-grid">
+        <a class="btn btn-primary" href="mailto:filipes_santos@hotmail.com">✉ filipes_santos@hotmail.com</a>
+        <a class="btn btn-ghost" href="https://wa.me/5512992307649" target="_blank" rel="noopener">📱 WhatsApp +55 12 99230-7649</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/filipe-de-souza-santos-21aa7a86/" target="_blank" rel="noopener">in LinkedIn</a>
+        <a class="btn btn-ghost" href="cv/Filipe_Santos_CV_EN.pdf" target="_blank" rel="noopener">⬇ CV (PDF)</a>
+      </div>
     </div>
   </section>
 
-</div>
+</main>
 
 <footer>
-  Filipe de Souza Santos &nbsp;·&nbsp; São José dos Campos, Brasil &nbsp;·&nbsp;
-  <a href="https://github.com/Filipe-Bina" style="color:#4f46e5; text-decoration:none;">github.com/Filipe-Bina</a>
+  Filipe de Souza Santos &nbsp;·&nbsp; São José dos Campos, <span class="pt">Brasil</span><span class="en">Brazil</span> &nbsp;·&nbsp;
+  <a href="https://github.com/Filipe-Bina" target="_blank" rel="noopener">github.com/Filipe-Bina</a>
 </footer>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+    function setLang(lang) {
+      root.setAttribute('data-lang', lang);
+      root.setAttribute('lang', lang === 'en' ? 'en' : 'pt');
+      document.querySelectorAll('[data-set-lang]').forEach(function (b) {
+        b.setAttribute('aria-pressed', b.getAttribute('data-set-lang') === lang ? 'true' : 'false');
+      });
+      try { localStorage.setItem('fs-lang', lang); } catch (e) {}
+    }
+    var saved = null;
+    try { saved = localStorage.getItem('fs-lang'); } catch (e) {}
+    var param = new URLSearchParams(location.search).get('lang');
+    var nav = (navigator.language || 'pt').toLowerCase();
+    setLang(param === 'en' || param === 'pt' ? param : (saved || (nav.indexOf('pt') === 0 ? 'pt' : 'en')));
+    document.querySelectorAll('[data-set-lang]').forEach(function (b) {
+      b.addEventListener('click', function () { setLang(b.getAttribute('data-set-lang')); });
+    });
+  })();
+</script>
 
 </body>
 </html>
